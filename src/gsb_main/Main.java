@@ -5,20 +5,25 @@ import java.util.Scanner;
 import gsb_dao.Dao;
 import gsb_hibernate.Utilisateur;
 import gsb_requete_sql.*;
+import gsb_interface.*;
 
 public class Main {
 	public static void main(String[] args) {
+		
+		Interface fen = new Interface();
+		fen.setVisible(true);
+		
 		/*Dao<Utilisateur> dao = new Dao<Utilisateur>(Utilisateur.class);
 		List<Utilisateur> utilisateur = dao.getAll();
 		for (Utilisateur Utilisateur : utilisateur) {
 			System.out.println(Utilisateur.getPrenom() + " " + Utilisateur.getNom());
-		}*/
+		}
 		System.out.println("*************************************************");
 		
 		Scanner sc = new Scanner(System.in);
 		requete co = new requete();
 		int choix;
-		co.Connecter();
+		co.Connecter()
 		System.out.println("Saisir une valeur : ");
 		System.out.println("");
 		System.out.println("1: Lire les données");
@@ -47,6 +52,6 @@ public class Main {
 			co.LireDonneesOrdreAlpha();
 		}
 
-		System.out.println("*************************************************");
+		System.out.println("*************************************************");*/
 	}
 }
