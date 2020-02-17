@@ -14,13 +14,16 @@ public class requete {
 	public static void main(String[] args) {
 					System.out.println("Java JDBC");
     	Connecter();
-		InsererDonnees();
+		InsererDonnees(null, null, null);
 		SuppDonnees();
 		// ModifierDonnees();
 		LireDonnees();
 		LireDonneesOrdreAlpha();
 	}
 
+	public requete() {
+		Connecter();
+	}
 	public static void Connecter() {
 		/*
 		 * Connexion a la bdd 
@@ -71,18 +74,18 @@ public class requete {
 	
 	}
 	
-	public static void InsererDonnees() {
+	public static void InsererDonnees(String Nom, String prenom, String fonction) {
 		Statement stmt;
-		Scanner sc = new Scanner(System.in);
+		/*Scanner sc = new Scanner(System.in);
 		System.out.print( "Nom : " );
         String Nom = sc.nextLine();
         System.out.print( "Prenom : " );
         String Prenom = sc.nextLine();
         System.out.print( "Fonction : " );
-        String Fonction = sc.nextLine();
+        String Fonction = sc.nextLine();*/
 		try {
 			stmt=connection.createStatement();
-			String sql="INSERT INTO utilisateur(id, Nom, Prenom, Fonction) VALUES(NULL, '"+Nom+"','"+Prenom+"', '"+Fonction+"')";
+			String sql="INSERT INTO utilisateur(id, Nom, Prenom, Fonction) VALUES(NULL, '"+Nom+"','"+prenom+"', '"+fonction+"')";
 			stmt.executeUpdate(sql);
 			System.out.println("Insertion des donées réussis");
 		}catch (SQLException e){
