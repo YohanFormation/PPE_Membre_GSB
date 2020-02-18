@@ -6,9 +6,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import gsb_requete_sql.requete;
+import javax.swing.JList;
 
 public class SupprimerUtilisateur extends JPanel {
 	private JTextField id;
@@ -19,27 +21,17 @@ public class SupprimerUtilisateur extends JPanel {
 	public SupprimerUtilisateur() {
 
 		setLayout(null);
-
-		id = new JTextField();
-		id.setBounds(239, 164, 116, 22);
-		add(id);
-		id.setColumns(10);
-
-		JLabel lblNom = new JLabel("Nom");
-		lblNom.setBounds(150, 167, 56, 16);
-		add(lblNom);
-
-		JButton btnEnregistrer = new JButton("enregistrer");
-		btnEnregistrer.setBounds(239, 317, 116, 25);
-		add(btnEnregistrer);
-
-		btnEnregistrer.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				requete co = new requete();
-				co.SuppDonnees(id);
-			}
-		});
+		requete co = new requete();
+		JTextArea text_suppr = new JTextArea();
+		text_suppr.setEditable(false);
+		text_suppr.setBounds(12, 13, 570, 514);
+		add(text_suppr);
+		String result = ("Identifiant"+"  "+"Nom"+"  "+"Prenom"+"  "+"Fonction");
+		String newLine = System.getProperty("line.separator");
+		for (String iterable_element : co.LireDonnees()) {
+			result = result + "\n" + iterable_element;
+		}
+		text_suppr.setText(result);
 
 	}
-
 }
