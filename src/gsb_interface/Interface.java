@@ -31,6 +31,9 @@ import javax.swing.UIManager;
 public class Interface extends JFrame {
 
 	private JPanel contentPane;
+	LireUtilisateur pannel_utilisateur = new LireUtilisateur();
+	AjoutUtilisateur pannel_ajout = new AjoutUtilisateur();
+	
 
 	/**
 	 * Launch the application.
@@ -68,11 +71,11 @@ public class Interface extends JFrame {
 		JButton btnNewButton = new JButton("Supprimer un utilisateur");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				co.LireDonneesOrdreAlpha();
+				/*co.LireDonneesOrdreAlpha();
 				System.out.println("");
 				co.SuppDonnees();
 				System.out.println("");
-				co.LireDonneesOrdreAlpha();
+				co.LireDonneesOrdreAlpha();*/
 			}
 		});
 		btnNewButton.setBounds(725, 484, 183, 46);
@@ -81,9 +84,15 @@ public class Interface extends JFrame {
 		JButton button = new JButton("Utilisateur");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				co.Connecter();
+				//LireUtilisateur pannel_utilisateur = new LireUtilisateur();
+				pannel_utilisateur.setBounds(12, 13, 594, 534);
+				setSize(1038, 608);
+				setSize(1038, 607);
+				contentPane.remove(pannel_ajout);
+				contentPane.add(pannel_utilisateur);
+				/*co.Connecter();
 				System.out.println("");
-				co.LireDonnees();
+				co.LireDonnees();*/
 			}
 		});
 		button.setBounds(725, 307, 183, 46);
@@ -92,9 +101,16 @@ public class Interface extends JFrame {
 		JButton button_1 = new JButton("Entrer un utilisateur");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				co.InsererDonnees();
+				//AjoutUtilisateur pannel_ajout = new AjoutUtilisateur();
+				pannel_ajout.setBounds(12, 13, 594, 534);
+				setSize(1038, 608);
+				setSize(1038, 607);
+				contentPane.remove(pannel_utilisateur);
+				contentPane.add(pannel_ajout);
+				
+				/*co.InsererDonnees();
 				System.out.println("");
-				co.LireDonneesOrdreAlpha();
+				co.LireDonneesOrdreAlpha();*/
 			}
 		});
 		button_1.setBounds(725, 366, 183, 46);
@@ -117,9 +133,9 @@ public class Interface extends JFrame {
 		button_3.setBounds(725, 248, 183, 46);
 		contentPane.add(button_3);
 
-		JPanel panel = new JPanel();
+		/*JPanel panel = new JPanel();
 		panel.setBounds(12, 13, 594, 534);
-		contentPane.add(panel);
+		contentPane.add(panel);*/
 
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon("D:\\apache-maven-3.6.3\\conf\\gsb.png"));
