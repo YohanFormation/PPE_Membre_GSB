@@ -13,25 +13,37 @@ import gsb_requete_sql.requete;
 import javax.swing.JList;
 
 public class SupprimerUtilisateur extends JPanel {
-	private JTextField id;
+	private JTextField text_id;
 
 	/**
 	 * Create the panel.
 	 */
 	public SupprimerUtilisateur() {
-
 		setLayout(null);
-		requete co = new requete();
-		JTextArea text_suppr = new JTextArea();
-		text_suppr.setEditable(false);
-		text_suppr.setBounds(12, 13, 570, 514);
-		add(text_suppr);
-		String result = ("Identifiant"+"  "+"Nom"+"  "+"Prenom"+"  "+"Fonction");
-		String newLine = System.getProperty("line.separator");
-		for (String iterable_element : co.LireDonnees()) {
-			result = result + "\n" + iterable_element;
-		}
-		text_suppr.setText(result);
+		LireUtilisateur pannel_utilisateur = new LireUtilisateur();
+		pannel_utilisateur.setBounds(12, 64, 570, 463);
+		add(pannel_utilisateur);
+
+		text_id = new JTextField();
+		text_id.setBounds(163, 29, 116, 22);
+		add(text_id);
+		text_id.setColumns(10);
+
+		JLabel lblId = new JLabel("ID :");
+		lblId.setBounds(129, 32, 56, 16);
+		add(lblId);
+
+		JButton btnNewButton = new JButton("Supprimer");
+		btnNewButton.setBounds(304, 28, 97, 25);
+		add(btnNewButton);
+
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				requete co = new requete();
+				co.SuppDonnees(Integer.parseInt(text_id.getText()));
+				pannel_utilisateur.AcutaliserDonnees();
+			}
+		});
 
 	}
 }

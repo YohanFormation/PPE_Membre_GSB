@@ -17,7 +17,7 @@ public class requete {
     	Connecter();
 		InsererDonnees(null, null, null);
 		SuppDonnees(null);
-		// ModifierDonnees();
+		ModifierDonnees(null, null, null, null);
 		LireDonnees();
 		LireDonneesOrdreAlpha();
 	}
@@ -79,13 +79,7 @@ public class requete {
 	
 	public static void InsererDonnees(String Nom, String prenom, String fonction) {
 		Statement stmt;
-		/*Scanner sc = new Scanner(System.in);
-		System.out.print( "Nom : " );
-        String Nom = sc.nextLine();
-        System.out.print( "Prenom : " );
-        String Prenom = sc.nextLine();
-        System.out.print( "Fonction : " );
-        String Fonction = sc.nextLine();*/
+	
 		try {
 			stmt=connection.createStatement();
 			String sql="INSERT INTO utilisateur(id, Nom, Prenom, Fonction) VALUES(NULL, '"+Nom+"','"+prenom+"', '"+fonction+"')";
@@ -98,10 +92,7 @@ public class requete {
 	
 	public static void SuppDonnees(Integer id) {
 		Statement stmt;
-		/*System.out.println("Saisir l'id du compte a supprimer");
-		Scanner sc = new Scanner(System.in);
-		System.out.print( "Id : " );
-        Integer id = sc.nextInt();*/
+		
 		try {
 			stmt=connection.createStatement();
 			String sql="DELETE FROM utilisateur WHERE id='"+id+"'";
@@ -112,18 +103,18 @@ public class requete {
 		}
 		
 	}
-	/*
-	public static void ModifierDonnees() {
+	
+	public static void ModifierDonnees(Integer id, String Nom, String Prenom, String Fonction) {
 		Statement stmt;
 		try {
 			stmt=connection.createStatement();
-			String sql="UPDATE users SET `Nom` = 'Albuquerque' WHERE `users`.`id` = 1;";
+			String sql="UPDATE utilisateur SET Nom = '"+Nom+"', Prenom = '"+Prenom+"', Fonction = '"+Fonction+"' WHERE utilisateur.id = '"+Integer.toString(id)+"';";
 			stmt.executeUpdate(sql);
 			System.out.println("Modification OK");
 		}catch (SQLException e){
 			e.printStackTrace();
 		}
 	}
-	*/
+	
 
 }

@@ -17,17 +17,19 @@ public class ModifierUtilisateur extends JPanel {
 	private JTextField text_Nom;
 	private JTextField text_Prenom;
 	private JTextField text_Fonction;
+	
 
 	/**
 	 * Create the panel.
 	 */
 	public ModifierUtilisateur() {
-		setLayout(null);
+		setLayout(null);		
+	
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(12, 129, 570, 398);
-		add(panel);
-		
+		LireUtilisateur pannel_utilisateur = new LireUtilisateur();
+		pannel_utilisateur.setBounds(12, 129, 570, 398);
+		add(pannel_utilisateur);
+
 		text_id = new JTextField();
 		text_id.setBounds(40, 13, 116, 22);
 		add(text_id);
@@ -35,12 +37,12 @@ public class ModifierUtilisateur extends JPanel {
 		
 		text_Nom = new JTextField();
 		text_Nom.setColumns(10);
-		text_Nom.setBounds(318, 48, 116, 22);
+		text_Nom.setBounds(318, 13, 116, 22);
 		add(text_Nom);
 		
 		text_Prenom = new JTextField();
 		text_Prenom.setColumns(10);
-		text_Prenom.setBounds(318, 13, 116, 22);
+		text_Prenom.setBounds(318, 48, 116, 22);
 		add(text_Prenom);
 		
 		text_Fonction = new JTextField();
@@ -71,7 +73,8 @@ public class ModifierUtilisateur extends JPanel {
 		btnModifier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				requete co = new requete();
-				co.ModifierDonnees(text_id.getText(),text_Nom.getText(), text_Prenom.getText(), text_Fonction.getText());
+				co.ModifierDonnees(Integer.parseInt(text_id.getText()),text_Nom.getText(), text_Prenom.getText(), text_Fonction.getText());
+				pannel_utilisateur.AcutaliserDonnees();
 			}
 		});
 		
