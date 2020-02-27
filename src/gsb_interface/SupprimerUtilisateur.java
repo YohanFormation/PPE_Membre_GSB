@@ -21,20 +21,31 @@ public class SupprimerUtilisateur extends JPanel {
 	public SupprimerUtilisateur() {
 		setLayout(null);
 		LireUtilisateur pannel_utilisateur = new LireUtilisateur();
-		pannel_utilisateur.setBounds(12, 64, 570, 463);
+		pannel_utilisateur.setBounds(12, 66, 570, 463);
 		add(pannel_utilisateur);
 
 		text_id = new JTextField();
-		text_id.setBounds(163, 29, 116, 22);
+		text_id.setBounds(47, 10, 116, 22);
 		add(text_id);
 		text_id.setColumns(10);
 
 		JLabel lblId = new JLabel("ID :");
-		lblId.setBounds(129, 32, 56, 16);
+		lblId.setBounds(12, 13, 56, 16);
 		add(lblId);
 
+		
+		JButton btnRafraichirDonnes = new JButton("Rafraichir Donn\u00E9es");
+		btnRafraichirDonnes.setBounds(438, 9, 144, 25);
+		add(btnRafraichirDonnes);
+		btnRafraichirDonnes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				requete co = new requete();
+				pannel_utilisateur.AcutaliserDonnees();
+			}
+		});
+		
 		JButton btnNewButton = new JButton("Supprimer");
-		btnNewButton.setBounds(304, 28, 97, 25);
+		btnNewButton.setBounds(12, 42, 97, 25);
 		add(btnNewButton);
 
 		btnNewButton.addActionListener(new ActionListener() {

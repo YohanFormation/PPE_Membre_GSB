@@ -69,6 +69,16 @@ public class ModifierUtilisateur extends JPanel {
 		JButton btnModifier = new JButton("Modifier");
 		btnModifier.setBounds(469, 47, 97, 25);
 		add(btnModifier);
+		
+		JButton btnRafraichirDonnes = new JButton("Rafraichir Donn\u00E9es");
+		btnRafraichirDonnes.setBounds(12, 91, 144, 25);
+		add(btnRafraichirDonnes);
+		btnRafraichirDonnes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				requete co = new requete();
+				pannel_utilisateur.AcutaliserDonnees();
+			}
+		});
 
 		btnModifier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
