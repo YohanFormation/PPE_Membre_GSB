@@ -53,10 +53,12 @@ public class AjoutUtilisateur extends JPanel {
 		JLabel label_1 = new JLabel("Fonction");
 		label_1.setBounds(150, 257, 56, 16);
 		add(label_1);
+
 		btnEnregistrer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				requete co = new requete();
 				co.InsererDonnees(text_nom.getText(), text_prenom.getText(), text_fonction.getText());
+				javax.swing.JOptionPane.showMessageDialog(null,"Utilisateur ajouté!");
 			}
 		});
 

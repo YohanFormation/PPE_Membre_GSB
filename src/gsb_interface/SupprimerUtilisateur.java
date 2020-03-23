@@ -52,6 +52,7 @@ public class SupprimerUtilisateur extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				requete co = new requete();
 				co.SuppDonnees(Integer.parseInt(text_id.getText()));
+				javax.swing.JOptionPane.showMessageDialog(null,"Utilisateur supprimé!");
 				pannel_utilisateur.AcutaliserDonnees();
 			}
 		});

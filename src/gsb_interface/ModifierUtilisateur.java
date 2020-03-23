@@ -84,6 +84,7 @@ public class ModifierUtilisateur extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				requete co = new requete();
 				co.ModifierDonnees(Integer.parseInt(text_id.getText()),text_Nom.getText(), text_Prenom.getText(), text_Fonction.getText());
+				javax.swing.JOptionPane.showMessageDialog(null,"Utilisateur modifié!");
 				pannel_utilisateur.AcutaliserDonnees();
 			}
 		});
